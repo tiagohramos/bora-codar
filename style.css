@@ -13,6 +13,10 @@ body {
     font-size: 1.6rem;
     font-family: inter;
 }
+.grid{
+
+    display: grid;
+}
 .box {
     
     
@@ -25,27 +29,21 @@ body {
     color: white;
     line-height: 160%;
 }
-.grid{
 
-    display: grid;
-}
 #app {
     background: #292738;
     
 
-    grid-template-columns: 29.6rem max-content max-content;
+    grid-template-columns: 29.6rem  max-content max-content ;
     grid-template-rows:max-content;
     column-gap: 3.2rem;
     row-gap: 5.9rem;
+    width:fit-content;
+    height: fit-content;
+    min-height:100vh;
+    min-width: 100vw;
 
-
-width:fit-content;
-height: 100vh;
-min-height:fit-content;
-min-width: 10vw;
-
-padding: 11.2rem 12.3rem;
-place-content: center;
+    place-content: center;
 }   
 
 .box:nth-child(4) {
@@ -76,7 +74,7 @@ place-content: center;
     
 
 }
-.bottom .item span:nth-child(1){
+.bottom .item span:nth-child(1) {
     display: flex;
     align-items: center;
     gap: 0.4rem;
@@ -118,4 +116,53 @@ gap: 3.2rem;
     justify-content: center;
     gap: 1rem;
 
+}
+.middle{
+    display: grid;
+    place-content: center;
+    position: relative;
+
+
+}
+svg {
+--percentage:0;
+ width: 19.7rem;
+ height: 19.7rem;  
+ transform: rotate(-90deg); 
+ 
+}
+svg circle {
+
+    stroke-dasharray: 618;
+    stroke-dashoffset: 618;
+    stroke-width: 35;
+    fill: none;
+    
+}
+svg circle:nth-child(1) {
+    stroke-dashoffset: 0;
+
+
+}
+svg circle:nth-child(2) {
+    stroke-dashoffset: calc(618 - (618 * var(--percentage))/100);
+    stroke-linecap: round;
+    animation: progress 1s ease-in-out;
+    
+}
+@keyframes progress{
+    0% {
+    stroke-dasharray: 618;
+    stroke-dashoffset: 618;
+    }
+}
+.middle .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.content h3{
+    font-size: 3.4rem;
 }
